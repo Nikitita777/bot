@@ -1,4 +1,4 @@
-# bot
+#bot
 import discord
 import requests
 from discord.ext import commands, tasks
@@ -17,6 +17,8 @@ game = ["Чтобы произвести стекло, нужно использ
         "Правда, что если смешать красный и зеленый, то получится коричневый?1"]
 sent = ""
 images = ["purple.jpg", "roza.jpg", "flower.jpg"]
+mems = ["mem1.jpg", "mem2.jpg", "mem3.jpg"]
+nature=["Сортируй мусор","выкидывай мусор в мусорку","не руби деревья"]
 list_of_players = []
 game_status = False
 win_list = []
@@ -214,3 +216,17 @@ async def on_ready():
 @bot.command()
 async def riddle(ctx):
     await ctx.send("Что может бежать, но не может идти?")
+
+
+@bot.command()
+async def mem(ctx):
+    await ctx.send(file=discord.File(random.choice(mems)))
+
+
+@bot.command()
+async def eco(ctx):
+    await ctx.send(random.choice(nature))
+
+bot.run(token)
+
+
